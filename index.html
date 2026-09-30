@@ -609,7 +609,36 @@
       justify-content: space-between;
       gap: 20px;
     }
+    /* INTERACTIVE ANIMATIONS */
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service,
+    .project,
+    .step,
+    .industry,
+    .tool {
+      will-change: transform;
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -1333,6 +1362,198 @@
     </div>
 
   </footer>
+<!-- INTERACTIVE FEATURES -->
 
+<script>
+
+  /* Scroll reveal animation */
+
+  const revealItems = document.querySelectorAll(
+    ".service, .project, .step, .stat, .industry, .tool, .about-card, .about-text"
+  );
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+
+          revealObserver.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+
+  revealItems.forEach((item) => {
+
+    item.classList.add("reveal");
+
+    revealObserver.observe(item);
+
+  });
+
+
+  /* Animated statistics */
+
+  const counters = document.querySelectorAll(".stat-number");
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+
+        const original = counter.textContent;
+
+        /*
+          Only animate numbers.
+          Percentages such as 35–50% remain unchanged.
+        */
+
+        if (original.includes("–") || original.includes("%")) {
+          counterObserver.unobserve(counter);
+          return;
+        }
+
+        const number = parseInt(
+          original.replace(/,/g, "").replace("+", "")
+        );
+
+        if (isNaN(number)) return;
+
+        let current = 0;
+
+        const increment = Math.max(
+          1,
+          Math.ceil(number / 50)
+        );
+
+        const timer = setInterval(() => {
+
+          current += increment;
+
+          if (current >= number) {
+
+            current = number;
+
+            clearInterval(timer);
+
+          }
+
+          counter.textContent =
+            current.toLocaleString() +
+            (original.includes("+") ? "+" : "");
+
+        }, 25);
+
+        counterObserver.unobserve(counter);
+
+      });
+
+    },
+    {
+      threshold: 0.7
+    }
+  );
+
+
+  counters.forEach((counter) => {
+
+    counterObserver.observe(counter);
+
+  });
+
+
+  /* Add active effect to navigation */
+
+  const navLinks = document.querySelectorAll(
+    ".nav-links a:not(.nav-button)"
+  );
+
+  navLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+      navLinks.forEach((item) => {
+
+        item.classList.remove("active");
+
+      });
+
+      link.classList.add("active");
+
+    });
+
+  });
+
+
+  /* Interactive service cards */
+
+  const services = document.querySelectorAll(".service");
+
+  services.forEach((service) => {
+
+    service.addEventListener("mouseenter", () => {
+
+      services.forEach((other) => {
+
+        if (other !== service) {
+
+          other.style.opacity = "0.65";
+
+        }
+
+      });
+
+    });
+
+    service.addEventListener("mouseleave", () => {
+
+      services.forEach((other) => {
+
+        other.style.opacity = "1";
+
+      });
+
+    });
+
+  });
+
+
+  /* Interactive tools */
+
+  const tools = document.querySelectorAll(".tool");
+
+  tools.forEach((tool) => {
+
+    tool.addEventListener("mouseenter", () => {
+
+      tool.style.transform = "translateY(-3px)";
+
+    });
+
+    tool.addEventListener("mouseleave", () => {
+
+      tool.style.transform = "translateY(0)";
+
+    });
+
+  });
+
+
+</script>
 </body>
 </html>
