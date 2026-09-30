@@ -1,886 +1,1338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Jean Aubrey | Lead Research VA</title>
-
-    <meta name="description" content="Jean Aubrey — Lead Research VA specializing in lead generation, business research, prospect research, and data validation.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f9fa;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .logo span {
-            color: #2563eb;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #374151;
-            margin-left: 25px;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #2563eb;
-        }
-
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            padding: 80px 8%;
-            background: white;
-        }
-
-        .hero-text {
-            max-width: 650px;
-        }
-
-        .eyebrow {
-            color: #2563eb;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: clamp(42px, 6vw, 76px);
-            line-height: 1.05;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-
-        .hero-text p {
-            font-size: 19px;
-            color: #6b7280;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 22px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.25s ease;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-        }
-
-        .btn-secondary {
-            border: 1px solid #d1d5db;
-            color: #374151;
-        }
-
-        .btn-secondary:hover {
-            background: #f3f4f6;
-        }
-
-        .avatar {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            background: #eff6ff;
-            border: 1px solid #dbeafe;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            font-weight: 700;
-            color: #2563eb;
-            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.12);
-            transition: 0.4s ease;
-        }
-
-        .avatar:hover {
-            transform: translateY(-10px) rotate(3deg);
-        }
-
-        section {
-            padding: 90px 8%;
-        }
-
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .section-intro {
-            color: #6b7280;
-            max-width: 650px;
-            margin-bottom: 45px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            background: #111827;
-            color: white;
-            padding: 50px 8%;
-            gap: 30px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 42px;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            color: #d1d5db;
-            font-size: 14px;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            padding: 28px;
-            transition: 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
-
-        .icon {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #6b7280;
-            font-size: 15px;
-        }
-
-        .portfolio {
-            background: white;
-        }
-
-        .project {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-
-        .project-preview {
-            min-height: 280px;
-            border-radius: 16px;
-            background: #f3f4f6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: #9ca3af;
-        }
-
-        .tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 18px;
-        }
-
-        .tag {
-            background: #eff6ff;
-            color: #2563eb;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-
-        .workflow {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .step {
-            background: white;
-            border-radius: 14px;
-            padding: 25px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .step-number {
-            color: #2563eb;
-            font-weight: 700;
-            font-size: 13px;
-        }
-
-        .tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .tool {
-            padding: 12px 18px;
-            border: 1px solid #e5e7eb;
-            border-radius: 30px;
-            background: white;
-            transition: 0.25s;
-        }
-
-        .tool:hover {
-            border-color: #2563eb;
-            color: #2563eb;
-            transform: translateY(-3px);
-        }
-
-        .about {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-photo {
-            height: 400px;
-            border-radius: 20px;
-            background: #eff6ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2563eb;
-            font-size: 50px;
-            font-weight: 700;
-        }
-
-        .cta {
-            text-align: center;
-            background: #111827;
-            color: white;
-        }
-
-        .cta p {
-            color: #d1d5db;
-            max-width: 550px;
-            margin: 15px auto 30px;
-        }
-
-        footer {
-            padding: 30px 8%;
-            text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-            background: white;
-        }
-
-        @media (max-width: 850px) {
-            .hero,
-            .project,
-            .about {
-                grid-template-columns: 1fr;
-                display: grid;
-            }
-
-            .hero {
-                text-align: center;
-            }
-
-            .hero-text {
-                margin: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .avatar {
-                margin: auto;
-            }
-
-            .services {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .workflow {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 550px) {
-            nav {
-                padding: 15px 5%;
-            }
-
-            nav div:last-child {
-                display: none;
-            }
-
-            section {
-                padding: 65px 5%;
-            }
-
-            .services,
-            .workflow,
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 45px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jean Aubrey | Lead Research VA</title>
+
+  <meta name="description" content="Jean Aubrey is a Lead Research VA specializing in lead generation, B2B prospect research, data validation, and research support.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg: #f7f8fa;
+      --white: #ffffff;
+      --text: #17202a;
+      --muted: #667085;
+      --line: #e6e8ec;
+      --dark: #111827;
+      --accent: #635bff;
+      --accent-light: #eeecff;
+      --green: #1fa774;
+      --shadow: 0 15px 45px rgba(17, 24, 39, 0.08);
+      --radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 248, 250, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(230, 232, 236, 0.8);
+    }
+
+    .nav-inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-button {
+      background: var(--dark);
+      color: white !important;
+      padding: 11px 17px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.9;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 105px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 6vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      max-width: 760px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 650px;
+      margin-top: 25px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .button-primary {
+      background: var(--dark);
+      color: white;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    /* HERO CARD */
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      top: -80px;
+      right: -70px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .hero-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .mini-tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .mini-tags span {
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* STATS */
+
+    .stats {
+      padding: 0 0 90px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 30px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(34px, 4vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-top: 15px;
+      max-width: 620px;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .service {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 25px;
+      min-height: 200px;
+      transition: 0.25s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: #d8d5ff;
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      margin-bottom: 20px;
+    }
+
+    .service h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* WORKFLOW */
+
+    .workflow {
+      background: var(--dark);
+      color: white;
+    }
+
+    .workflow .section-description {
+      color: #aeb5c1;
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      border: 1px solid #2d3748;
+      border-radius: 16px;
+      padding: 22px 17px;
+      transition: 0.25s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      border-color: #6861ff;
+    }
+
+    .step-number {
+      color: #9c97ff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .step h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: #aeb5c1;
+      font-size: 12px;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-preview {
+      height: 190px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, #f0efff, #fafafa);
+      border: 1px solid var(--line);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .project h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .project-tags span {
+      font-size: 11px;
+      padding: 6px 9px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      color: var(--muted);
+    }
+
+    /* INDUSTRIES */
+
+    .industry-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .industry {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      transition: 0.2s ease;
+    }
+
+    .industry:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: var(--dark);
+      color: white;
+      border-radius: 25px;
+      padding: 35px;
+    }
+
+    .about-card .avatar {
+      background: white;
+      color: var(--dark);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* TOOLS */
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tool {
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 40px 0 100px;
+    }
+
+    .cta-box {
+      background: var(--accent);
+      color: white;
+      border-radius: 28px;
+      padding: 60px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cta-box p {
+      max-width: 560px;
+      margin: 15px auto 28px;
+      opacity: 0.88;
+    }
+
+    .cta-box .button {
+      background: white;
+      color: var(--dark);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .workflow-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .workflow-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .workflow-grid {
+        gap: 10px;
+      }
+
+      .cta-box {
+        padding: 40px 25px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">JA<span>.</span></div>
+  <!-- NAVIGATION -->
 
-    <div>
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        JA<span>.</span>
+      </a>
+
+      <div class="nav-links">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-button">Let's Work Together →</a>
+      </div>
+
     </div>
-</nav>
+  </nav>
 
-<section class="hero">
 
-    <div class="hero-text">
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
 
         <div class="eyebrow">
-            JEAN AUBREY | LEAD RESEARCH VA
+          <span class="status-dot"></span>
+          Available for freelance projects
         </div>
 
         <h1>
-            I find the right companies, prospects, and data.
+          I find the right
+          <span>companies, prospects,</span>
+          and data.
         </h1>
 
-        <p>
-            I help businesses build targeted lead lists, research prospects,
-            validate data, and support B2B outreach through structured,
-            reliable research.
+        <p class="hero-text">
+          I help businesses build targeted lead lists, research prospects,
+          validate data, and support B2B outreach through structured,
+          reliable research.
         </p>
 
-        <div class="buttons">
-            <a href="#work" class="btn btn-primary">
-                View My Work →
-            </a>
+        <div class="hero-buttons">
 
-            <a href="#contact" class="btn btn-secondary">
-                Let's Connect
-            </a>
+          <a href="#work" class="button button-primary">
+            View My Work →
+          </a>
+
+          <a href="#contact" class="button button-secondary">
+            Let's Connect
+          </a>
+
         </div>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="avatar">
+          JA
+        </div>
+
+        <h3>
+          Jean Aubrey
+        </h3>
+
+        <p>
+          Lead Research VA
+        </p>
+
+        <div class="mini-tags">
+          <span>Lead Generation</span>
+          <span>B2B Research</span>
+          <span>Data Validation</span>
+          <span>Prospect Research</span>
+        </div>
+
+      </div>
 
     </div>
 
-    <div class="avatar">
-        JA
-    </div>
-
-</section>
+  </header>
 
 
-<div class="stats">
+  <!-- STATS -->
 
-    <div class="stat">
-        <div class="stat-number">2+</div>
-        <div class="stat-label">Years of Research Experience</div>
-    </div>
+  <div class="stats">
 
-    <div class="stat">
-        <div class="stat-number">200+</div>
-        <div class="stat-label">Qualified Contacts / Week</div>
-    </div>
+    <div class="container">
 
-    <div class="stat">
-        <div class="stat-number">2,500+</div>
-        <div class="stat-label">Verified Emails Researched</div>
-    </div>
+      <div class="stats-grid">
 
-    <div class="stat">
-        <div class="stat-number">35–50%</div>
-        <div class="stat-label">Typical Campaign Open Rate</div>
-    </div>
-
-</div>
-
-
-<section id="services">
-
-    <h2 class="section-title">
-        What I Do
-    </h2>
-
-    <p class="section-intro">
-        From finding prospects to organizing the data behind them,
-        I support research-heavy sales and outreach workflows.
-    </p>
-
-    <div class="services">
-
-        <div class="card">
-            <div class="icon">🔎</div>
-            <h3>Lead Generation</h3>
-            <p>
-                Identify relevant businesses and prospects based on
-                industry, location, and target criteria.
-            </p>
+        <div class="stat">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">
+            Years of Research Experience
+          </div>
         </div>
 
-        <div class="card">
-            <div class="icon">🎯</div>
-            <h3>B2B Prospect Research</h3>
-            <p>
-                Research companies and relevant decision-makers for
-                targeted B2B prospecting.
-            </p>
+        <div class="stat">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">
+            Qualified Contacts Researched / Week
+          </div>
         </div>
 
-        <div class="card">
-            <div class="icon">📊</div>
-            <h3>Data Research & Validation</h3>
-            <p>
-                Turn scattered information into structured,
-                organized, and usable business data.
-            </p>
+        <div class="stat">
+          <div class="stat-number">2,500+</div>
+          <div class="stat-label">
+            Verified Emails Researched
+          </div>
         </div>
 
-        <div class="card">
-            <div class="icon">📧</div>
-            <h3>Email Research</h3>
-            <p>
-                Research relevant business contact information
-                for prospecting and outreach.
-            </p>
+        <div class="stat">
+          <div class="stat-number">35–50%</div>
+          <div class="stat-label">
+            Typical Campaign Open Rate
+          </div>
         </div>
 
-        <div class="card">
-            <div class="icon">💬</div>
-            <h3>Outreach Support</h3>
-            <p>
-                Support B2B outreach through organized prospect
-                lists, research, and campaign support.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📅</div>
-            <h3>Appointment Setting</h3>
-            <p>
-                Help move qualified prospects from initial outreach
-                toward meaningful conversations.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📣</div>
-            <h3>Email & LinkedIn Marketing</h3>
-            <p>
-                Support prospecting and marketing activities through
-                audience targeting and outreach.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🗂️</div>
-            <h3>Data Entry & Organization</h3>
-            <p>
-                Keep business information clean, consistent,
-                organized, and easy to work with.
-            </p>
-        </div>
+      </div>
 
     </div>
 
-</section>
+  </div>
 
 
-<section>
+  <!-- SERVICES -->
 
-    <h2 class="section-title">
-        How I Work
-    </h2>
+  <section id="services">
 
-    <p class="section-intro">
-        A structured approach to turning research into usable data.
-    </p>
+    <div class="container">
 
-    <div class="workflow">
+      <div class="section-heading">
+
+        <div class="section-label">
+          Services
+        </div>
+
+        <h2>
+          Research that turns into useful data.
+        </h2>
+
+        <p class="section-description">
+          From finding companies to organizing verified information,
+          I help turn a broad target market into a structured prospect list.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+        <div class="service">
+          <div class="service-icon">⌕</div>
+          <h3>Lead Generation</h3>
+          <p>
+            Build targeted business lead lists based on industry,
+            location, and other criteria.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">◎</div>
+          <h3>B2B Prospect Research</h3>
+          <p>
+            Research companies, prospects, decision-makers,
+            and relevant business information.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">✓</div>
+          <h3>Data Research & Validation</h3>
+          <p>
+            Verify business information and help keep datasets
+            accurate and organized.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">@</div>
+          <h3>Email Research</h3>
+          <p>
+            Research and validate professional contact information
+            for outreach campaigns.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">↗</div>
+          <h3>LinkedIn Prospecting</h3>
+          <p>
+            Research relevant professionals and decision-makers
+            using LinkedIn and related tools.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">✉</div>
+          <h3>Email Marketing</h3>
+          <p>
+            Support email campaigns through research,
+            list preparation, and outreach organization.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">☏</div>
+          <h3>Appointment Setting</h3>
+          <p>
+            Support outreach workflows and help move qualified
+            prospects toward discovery calls.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">▦</div>
+          <h3>Data Entry & Organization</h3>
+          <p>
+            Clean, format, organize, and maintain structured
+            spreadsheets and business datasets.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WORKFLOW -->
+
+  <section class="workflow">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="section-label">
+          Workflow
+        </div>
+
+        <h2>
+          From target market to usable lead list.
+        </h2>
+
+        <p class="section-description">
+          A structured process helps keep research consistent,
+          organized, and easier to use.
+        </p>
+
+      </div>
+
+
+      <div class="workflow-grid">
 
         <div class="step">
-            <div class="step-number">01 — IDENTIFY</div>
-            <h3>Define the Target</h3>
-            <p>
-                Understand the target market, location, industry,
-                company criteria, and ideal prospect.
-            </p>
+          <div class="step-number">01</div>
+          <h3>Identify</h3>
+          <p>Define the target market and research criteria.</p>
         </div>
 
         <div class="step">
-            <div class="step-number">02 — RESEARCH</div>
-            <h3>Find Relevant Data</h3>
-            <p>
-                Research businesses and prospects using multiple
-                online sources.
-            </p>
+          <div class="step-number">02</div>
+          <h3>Research</h3>
+          <p>Find relevant companies and potential prospects.</p>
         </div>
 
         <div class="step">
-            <div class="step-number">03 — VERIFY</div>
-            <h3>Check Information</h3>
-            <p>
-                Cross-check relevant business and contact information.
-            </p>
+          <div class="step-number">03</div>
+          <h3>Verify</h3>
+          <p>Check information across multiple sources.</p>
         </div>
 
         <div class="step">
-            <div class="step-number">04 — ORGANIZE</div>
-            <h3>Structure the Data</h3>
-            <p>
-                Clean, categorize, format, and organize the dataset.
-            </p>
+          <div class="step-number">04</div>
+          <h3>Organize</h3>
+          <p>Structure the information into a usable dataset.</p>
         </div>
 
         <div class="step">
-            <div class="step-number">05 — QUALITY CHECK</div>
-            <h3>Review the List</h3>
-            <p>
-                Check consistency, duplicates, missing information,
-                and formatting.
-            </p>
+          <div class="step-number">05</div>
+          <h3>Quality Check</h3>
+          <p>Review duplicates, formatting, and data accuracy.</p>
         </div>
 
         <div class="step">
-            <div class="step-number">06 — DELIVER</div>
-            <h3>Client-Ready Output</h3>
-            <p>
-                Provide an organized database ready for outreach
-                or further sales research.
-            </p>
+          <div class="step-number">06</div>
+          <h3>Deliver</h3>
+          <p>Provide a clean list ready for sales or outreach.</p>
         </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<section id="work" class="portfolio">
+  <!-- PORTFOLIO -->
 
-    <h2 class="section-title">
-        My Work
-    </h2>
+  <section id="work">
 
-    <p class="section-intro">
-        A look at how I turn research into structured, usable data.
-    </p>
+    <div class="container">
 
+      <div class="section-heading">
 
-    <div class="project">
-
-        <div class="project-preview">
-            LEAD LIST PREVIEW
+        <div class="section-label">
+          Selected Work
         </div>
 
-        <div>
-            <h3>B2B Construction Lead Research</h3>
+        <h2>
+          A look at the research behind the lists.
+        </h2>
 
-            <p>
-                Large-scale business research across targeted
-                locations and industry sources.
-            </p>
+        <p class="section-description">
+          These portfolio samples will show how I approach
+          lead research, validation, and high-volume data collection.
+        </p>
 
-            <div class="tags">
-                <span class="tag">Lead Generation</span>
-                <span class="tag">Business Research</span>
-                <span class="tag">Data Validation</span>
-            </div>
+      </div>
+
+
+      <div class="portfolio-grid">
+
+        <div class="project">
+
+          <div class="project-preview">
+            CASE STUDY — COMING SOON
+          </div>
+
+          <h3>
+            B2B Construction Lead Research
+          </h3>
+
+          <p>
+            Researching construction businesses across targeted
+            locations and organizing verified business information
+            into a structured lead database.
+          </p>
+
+          <div class="project-tags">
+            <span>Lead Generation</span>
+            <span>Google Maps</span>
+            <span>BBB</span>
+            <span>Data Validation</span>
+          </div>
+
         </div>
+
+
+        <div class="project">
+
+          <div class="project-preview">
+            CASE STUDY — COMING SOON
+          </div>
+
+          <h3>
+            Decision-Maker Research
+          </h3>
+
+          <p>
+            Identifying relevant hiring managers, HR leaders,
+            founders, and other decision-makers for B2B outreach.
+          </p>
+
+          <div class="project-tags">
+            <span>LinkedIn</span>
+            <span>Sales Navigator</span>
+            <span>B2B Research</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <div class="project-preview">
+            CASE STUDY — COMING SOON
+          </div>
+
+          <h3>
+            High-Volume Lead List Building
+          </h3>
+
+          <p>
+            Building large business datasets while maintaining
+            consistent formatting, location checks, deduplication,
+            and quality control.
+          </p>
+
+          <div class="project-tags">
+            <span>High Volume</span>
+            <span>Data Entry</span>
+            <span>Quality Control</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <div class="project-preview">
+            CASE STUDY — COMING SOON
+          </div>
+
+          <h3>
+            Business Data Validation
+          </h3>
+
+          <p>
+            Cross-checking business information using websites,
+            directories, social profiles, and multiple research sources.
+          </p>
+
+          <div class="project-tags">
+            <span>Research</span>
+            <span>Validation</span>
+            <span>Data Cleaning</span>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
+  </section>
 
-    <div class="project">
 
-        <div>
-            <h3>Decision-Maker Research</h3>
+  <!-- INDUSTRIES -->
 
-            <p>
-                Researching companies and identifying relevant
-                contacts for B2B outreach.
-            </p>
+  <section>
 
-            <div class="tags">
-                <span class="tag">Prospect Research</span>
-                <span class="tag">LinkedIn Research</span>
-                <span class="tag">Contact Research</span>
-            </div>
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="section-label">
+          Industries
         </div>
 
-        <div class="project-preview">
-            RESEARCH PREVIEW
-        </div>
+        <h2>
+          Research across different markets.
+        </h2>
+
+      </div>
+
+
+      <div class="industry-list">
+
+        <span class="industry">Construction</span>
+        <span class="industry">IT & Technology</span>
+        <span class="industry">Fintech</span>
+        <span class="industry">BFSI</span>
+        <span class="industry">Food & Beverage</span>
+        <span class="industry">Logistics</span>
+        <span class="industry">Transportation</span>
+        <span class="industry">Recruitment</span>
+        <span class="industry">Startups</span>
+        <span class="industry">Professional Services</span>
+
+      </div>
 
     </div>
 
+  </section>
 
-    <div class="project">
 
-        <div class="project-preview">
-            DATA VALIDATION PREVIEW
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container about-grid">
+
+      <div class="about-card">
+
+        <div class="avatar">
+          JA
         </div>
 
-        <div>
-            <h3>High-Volume Lead List Building</h3>
+        <h2>
+          Hi, I'm Jean Aubrey.
+        </h2>
 
-            <p>
-                Building large datasets while maintaining
-                consistency, formatting, and quality control.
-            </p>
+        <p style="margin-top:12px;color:#aeb5c1;">
+          Lead Research VA · Research · Lead Generation · Data Support
+        </p>
 
-            <div class="tags">
-                <span class="tag">Data Entry</span>
-                <span class="tag">Research</span>
-                <span class="tag">Quality Assurance</span>
-            </div>
+      </div>
+
+
+      <div class="about-text">
+
+        <div class="section-label">
+          About Me
         </div>
+
+        <h2>
+          I like turning research into something people can actually use.
+        </h2>
+
+        <br>
+
+        <p>
+          I'm a Lead Research VA with 2+ years of experience in
+          business research, lead generation, prospect research,
+          and data validation.
+        </p>
+
+        <p>
+          My experience includes researching companies across
+          different industries and locations, identifying relevant
+          prospects and decision-makers, validating business
+          information, and organizing large datasets for sales
+          and outreach teams.
+        </p>
+
+        <p>
+          I'm now bringing that experience into freelancing,
+          where I help businesses turn their target market into
+          structured, actionable lead lists.
+        </p>
+
+        <p>
+          I like turning
+          <strong>"Can you find these companies?"</strong>
+          into a clean spreadsheet that actually makes sense.
+        </p>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<section>
+  <!-- TOOLS -->
 
-    <h2 class="section-title">
-        Industries I've Researched
-    </h2>
+  <section id="tools">
 
-    <p class="section-intro">
-        Research isn't limited to one industry.
-    </p>
+    <div class="container">
 
-    <div class="tools">
+      <div class="section-heading">
 
-        <div class="tool">Construction</div>
-        <div class="tool">IT & Technology</div>
-        <div class="tool">Fintech</div>
-        <div class="tool">BFSI</div>
-        <div class="tool">Food & Beverage</div>
-        <div class="tool">Logistics</div>
-        <div class="tool">Transportation</div>
-        <div class="tool">Recruitment</div>
-        <div class="tool">Startups</div>
-        <div class="tool">Professional Services</div>
-
-    </div>
-
-</section>
-
-
-<section id="tools">
-
-    <h2 class="section-title">
-        Tools I Work With
-    </h2>
-
-    <p class="section-intro">
-        Platforms and tools I've worked with for research,
-        prospecting, organization, and outreach support.
-    </p>
-
-    <div class="tools">
-
-        <div class="tool">LinkedIn</div>
-        <div class="tool">Sales Navigator</div>
-        <div class="tool">Recruiter Lite</div>
-        <div class="tool">Google Search</div>
-        <div class="tool">Google Maps</div>
-        <div class="tool">Apollo</div>
-        <div class="tool">Crunchbase</div>
-        <div class="tool">Yelp</div>
-        <div class="tool">BBB</div>
-        <div class="tool">Manta</div>
-        <div class="tool">Google Sheets</div>
-        <div class="tool">Microsoft Excel</div>
-        <div class="tool">Google Workspace</div>
-        <div class="tool">Outlook</div>
-        <div class="tool">Pipedrive</div>
-        <div class="tool">CEIPAL</div>
-        <div class="tool">Canva</div>
-        <div class="tool">Loom</div>
-        <div class="tool">ChatGPT</div>
-        <div class="tool">Gemini</div>
-
-    </div>
-
-</section>
-
-
-<section id="about">
-
-    <div class="about">
-
-        <div class="about-photo">
-            JA
+        <div class="section-label">
+          Tools
         </div>
 
-        <div>
+        <h2>
+          Tools I use for research and outreach.
+        </h2>
 
-            <h2 class="section-title">
-                Hi, I'm Jean Aubrey.
-            </h2>
+      </div>
 
-            <p>
-                I'm a Lead Research VA with 2+ years of experience
-                in business research, lead generation, prospect
-                research, and data validation.
-            </p>
 
-            <br>
+      <div class="tools-grid">
 
-            <p>
-                My experience includes researching companies across
-                different industries and locations, identifying
-                relevant prospects and decision-makers, validating
-                business information, and organizing large datasets
-                for sales and outreach teams.
-            </p>
+        <span class="tool">LinkedIn</span>
+        <span class="tool">Sales Navigator</span>
+        <span class="tool">Recruiter Lite</span>
+        <span class="tool">Google Search</span>
+        <span class="tool">Google Maps</span>
+        <span class="tool">Apollo</span>
+        <span class="tool">Crunchbase</span>
+        <span class="tool">Yelp</span>
+        <span class="tool">BBB</span>
+        <span class="tool">Manta</span>
+        <span class="tool">Google Sheets</span>
+        <span class="tool">Microsoft Excel</span>
+        <span class="tool">Google Workspace</span>
+        <span class="tool">Outlook</span>
+        <span class="tool">Pipedrive</span>
+        <span class="tool">CEIPAL</span>
+        <span class="tool">Canva</span>
+        <span class="tool">Loom</span>
+        <span class="tool">ChatGPT</span>
+        <span class="tool">Gemini</span>
 
-            <br>
-
-            <p>
-                I'm now bringing that experience into freelancing,
-                where I help businesses turn their target market
-                into structured, actionable lead lists.
-            </p>
-
-            <br>
-
-            <p>
-                <strong>
-                    I like turning "Can you find these companies?"
-                    into a clean spreadsheet that actually makes sense.
-                </strong>
-            </p>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<section id="contact" class="cta">
+  <!-- CTA -->
 
-    <h2 class="section-title">
-        Have a target market in mind?
-    </h2>
+  <section class="cta" id="contact">
 
-    <p>
-        Let's turn it into a clean, organized prospect list.
-    </p>
+    <div class="container">
 
-    <div class="buttons">
+      <div class="cta-box">
 
-        <a href="mailto:YOUR_EMAIL_HERE" class="btn btn-primary">
-            Email Me
+        <h2>
+          Have a target market in mind?
+          Let's turn it into a clean, organized prospect list.
+        </h2>
+
+        <p>
+          Looking for help with lead generation, research,
+          data validation, or outreach support?
+          Let's talk about what you need.
+        </p>
+
+        <a href="mailto:YOUR_EMAIL_HERE" class="button">
+          Let's Work Together →
         </a>
 
-        <a href="YOUR_LINKEDIN_URL" class="btn btn-secondary">
-            LinkedIn
-        </a>
-
-        <a href="YOUR_UPWORK_URL" class="btn btn-secondary">
-            Upwork
-        </a>
-
-        <a href="YOUR_WHATSAPP_URL" class="btn btn-secondary">
-            WhatsApp
-        </a>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<footer>
+  <!-- FOOTER -->
 
-    Jean Aubrey | Lead Research VA
+  <footer>
 
-    <br>
+    <div class="container footer-inner">
 
-    Lead Generation · Research · Data Validation
+      <div>
+        © 2026 Jean Aubrey · Lead Research VA
+      </div>
 
-    <br><br>
+      <div>
+        Research · Lead Generation · Data Support
+      </div>
 
-    © 2026 Jean Aubrey
+    </div>
 
-</footer>
+  </footer>
 
 </body>
 </html>
